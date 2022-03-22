@@ -3,9 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Portfolio/RookieMessenger/app/src/main/res/drawable/add_to_message_button.xml" value="0.216" />
+        <entry key="..\:/Portfolio/RookieMessenger/app/src/main/res/drawable/enter_message_background.xml" value="0.188" />
+        <entry key="..\:/Portfolio/RookieMessenger/app/src/main/res/drawable/ic_add.xml" value="0.216" />
+        <entry key="..\:/Portfolio/RookieMessenger/app/src/main/res/drawable/ic_add_black.xml" value="0.216" />
+        <entry key="..\:/Portfolio/RookieMessenger/app/src/main/res/drawable/ic_add_white.xml" value="0.216" />
         <entry key="..\:/Portfolio/RookieMessenger/app/src/main/res/layout/activity_main.xml" value="0.14855072463768115" />
-        <entry key="..\:/Portfolio/RookieMessenger/app/src/main/res/layout/fragment_messages.xml" value="0.152" />
-        <entry key="..\:/Portfolio/RookieMessenger/app/src/main/res/layout/list_messages.xml" value="0.176" />
+        <entry key="..\:/Portfolio/RookieMessenger/app/src/main/res/layout/add_to_message_button.xml" value="0.16052631578947368" />
+        <entry key="..\:/Portfolio/RookieMessenger/app/src/main/res/layout/fragment_message_thread.xml" value="0.2" />
+        <entry key="..\:/Portfolio/RookieMessenger/app/src/main/res/layout/fragment_messages.xml" value="0.2" />
+        <entry key="..\:/Portfolio/RookieMessenger/app/src/main/res/layout/fragment_new_message.xml" value="0.2" />
+        <entry key="..\:/Portfolio/RookieMessenger/app/src/main/res/layout/fragment_signup_login.xml" value="0.20854700854700856" />
+        <entry key="..\:/Portfolio/RookieMessenger/app/src/main/res/layout/list_messages.xml" value="0.2" />
+        <entry key="..\:/Portfolio/RookieMessenger/app/src/main/res/layout/list_other_message.xml" value="0.16052631578947368" />
+        <entry key="..\:/Portfolio/RookieMessenger/app/src/main/res/layout/list_user_message.xml" value="0.2" />
       </map>
     </option>
   </component>

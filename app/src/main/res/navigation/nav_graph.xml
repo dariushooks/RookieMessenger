@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/signup_loginFrgament">
+
+    <fragment
+        android:id="@+id/signup_loginFrgament"
+        android:name="com.rookieandroid.rookiemessenger.fragments.SignUpLoginFragment"
+        android:label="Sign Up/Login"
+        tools:layout="@layout/fragment_signup_login">
+
+        <action
+            android:id="@+id/signup_loginToMainFragment"
+            app:destination="@id/mainFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.rookieandroid.rookiemessenger.fragments.MessagesFragment"
+        android:label="@string/label_main"
+        tools:layout="@layout/fragment_messages">
+
+        <action
+            android:id="@+id/mainFragmentToNewFragment"
+            app:destination="@id/newMessageFragment" />
+
+        <action
+            android:id="@+id/mainFragmentToThreadFragment"
+            app:destination="@id/messageThreadFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/newMessageFragment"
+        android:name="com.rookieandroid.rookiemessenger.fragments.NewMessageFragment"
+        android:label="@string/label_new"
+        tools:layout="@layout/fragment_new_message"/>
+
+    <fragment
+        android:id="@+id/messageThreadFragment"
+        android:name="com.rookieandroid.rookiemessenger.fragments.MessageThreadFragment"
+        android:label="@string/label_thread"
+        tools:layout="@layout/fragment_message_thread"/>
+</navigation>

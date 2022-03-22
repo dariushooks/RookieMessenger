@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "879129770722",
+    "project_id": "rookie-messenger",
+    "storage_bucket": "rookie-messenger.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:879129770722:android:e6179309963dd5d6a57cbb",
+        "android_client_info": {
+          "package_name": "com.rookieandroid.rookiemessenger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "879129770722-pajvtmaiank3evi36ga9lc3i2id16jtc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBT79IbYUsSO0DViA8ItXcXaJoJTx-YxJo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "879129770722-pajvtmaiank3evi36ga9lc3i2id16jtc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">Rookie Messenger</string>
     <string name="messages_fragment">Messages</string>
+    <string name="new_message">New Message</string>
+    <string name="cancel_message">Cancel</string>
+    <string name="label_main">Messages</string>
+    <string name="label_new">New Message</string>
+    <string name="label_thread">Message Thread</string>
+    <string name="message_send">Send</string>
+    <string name="enter_message">Enter Message</string>
+    <string name="add_contact">Add Contact</string>
+    <string name="signup_login_email">Email</string>
+    <string name="signup_login_password">Password</string>
+    <string name="login_button">Login</string>
+    <string name="sign_up_button">Sign Up</string>
+    <string name="sign_up_name">Name</string>
+    <string name="sign_up_create_button">Create</string>
+    <string name="sign_up_cancel_button">Cancel</string>
 </resources>

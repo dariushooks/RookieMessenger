@@ -1,0 +1,46 @@
+package com.rookieandroid.rookiemessenger.architecture
+
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.userProfileChangeRequest
+import com.google.firebase.database.*
+import com.rookieandroid.rookiemessenger.User
+
+class UserViewModel : ViewModel()
+{
+    private val auth : FirebaseAuth = FirebaseAuth.getInstance()
+    private val dbRef : DatabaseReference = FirebaseDatabase.getInstance().reference
+    private val users : MutableLiveData<List<User>> by lazy {
+        MutableLiveData<List<User>>().also { loadUsers() }
+    }
+
+    fun getUsers() : LiveData<List<User>> { return users }
+
+    private fun loadUsers()
+    {
+        dbRef.child("users").addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot)
+            {
+                val userList : ArrayList<User> = ArrayList()
+                for(postsnap in snapshot.children)
+                {
+                    val u = postsnap.getValue(User::class.java)
+                    if(u?.uid != auth.currentUser?.uid)
+                        userList.add(u!!)
+                    else
+                    {
+                        val profile = userProfileChangeRequest { displayName =  u?.name }
+                        auth.currentUser?.updateProfile(profile)
+                    }
+                }
+                users.value = userList
+            }
+
+            override fun onCancelled(error: DatabaseError)
+            {
+            }
+        })
+    }
+}
