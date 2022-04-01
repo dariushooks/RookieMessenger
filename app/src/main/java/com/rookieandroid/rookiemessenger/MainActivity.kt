@@ -10,7 +10,7 @@ import com.rookieandroid.rookiemessenger.architecture.UserViewModel
 
 class MainActivity : AppCompatActivity()
 {
-    private val userViewModel : UserViewModel by viewModels()
+    //private val userViewModel : UserViewModel by viewModels()
     private lateinit var auth : FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?)

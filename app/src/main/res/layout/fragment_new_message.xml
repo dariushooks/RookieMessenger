@@ -43,6 +43,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="@id/messagesActionBar"
         app:layout_constraintTop_toTopOf="@id/messagesActionBar"
+        app:layout_constraintBottom_toBottomOf="@id/messagesActionBar"
         android:text="@string/cancel_message"
         android:textAllCaps="true"
         android:textSize="15sp"
@@ -65,6 +66,31 @@
         app:layout_constraintEnd_toEndOf="@id/toMessageContainer"
         app:layout_constraintBottom_toBottomOf="@id/toMessageContainer"/>
 
+    <TextView
+        android:id="@+id/toText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="@string/to_text"
+        android:textSize="18sp"
+        android:textColor="@color/grey"
+        app:layout_constraintTop_toTopOf="@id/toMessageContainer"
+        app:layout_constraintBottom_toBottomOf="@id/toMessageContainer"
+        app:layout_constraintStart_toStartOf="@id/toMessageContainer"/>
+
+    <TextView
+        android:id="@+id/addToMessageAdded"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textSize="18sp"
+        android:textColor="@color/white"
+        android:background="@null"
+        app:layout_constraintTop_toTopOf="@id/toMessageContainer"
+        app:layout_constraintBottom_toBottomOf="@id/toMessageContainer"
+        app:layout_constraintStart_toEndOf="@id/toText"
+        app:layout_constraintEnd_toStartOf="@id/addToMessageButton"/>
+
     <EditText
         android:id="@+id/addToMessage"
         android:layout_width="0dp"
@@ -73,9 +99,10 @@
         android:hint="@string/add_contact"
         android:textColorHint="@color/grey"
         android:background="@null"
+        android:visibility="invisible"
         app:layout_constraintTop_toTopOf="@id/toMessageContainer"
         app:layout_constraintBottom_toBottomOf="@id/toMessageContainer"
-        app:layout_constraintStart_toStartOf="@id/toMessageContainer"
+        app:layout_constraintStart_toEndOf="@id/toText"
         app:layout_constraintEnd_toStartOf="@id/addToMessageButton"/>
 
     <ImageButton

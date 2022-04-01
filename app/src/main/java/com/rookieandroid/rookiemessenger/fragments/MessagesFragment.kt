@@ -28,11 +28,12 @@ import com.rookieandroid.rookiemessenger.architecture.UserViewModel
 
 class MessagesFragment : Fragment(), View.OnClickListener
 {
-    private var messages : ArrayList<Message> = ArrayList()
+    private val messages : ArrayList<Message> = ArrayList()
     private val messagesViewModel : MessagesViewModel by viewModels()
     private val userViewModel : UserViewModel by activityViewModels()
     private val auth : FirebaseAuth = FirebaseAuth.getInstance()
     private val dbRef : DatabaseReference = FirebaseDatabase.getInstance().reference
+    private lateinit var recyclerView : RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?)
     {
@@ -44,19 +45,14 @@ class MessagesFragment : Fragment(), View.OnClickListener
                 TODO("Not yet implemented")
             }
         })
-
         Log.i("Checking display name", auth.currentUser?.displayName.toString())
-        messagesViewModel.getMessages().observe(this) { messages -> this.messages = messages as ArrayList<Message> }
-
-        //messages.add(Message("Terrance", "null", "Some Text", ""))
-        //messages.add(Message("Kobe", "null", "Some Text", ""))
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?
     {
         super.onCreateView(inflater, container, savedInstanceState)
         val rootView = inflater.inflate(R.layout.fragment_messages, container, false)
-        val recyclerView = rootView.findViewById<RecyclerView>(R.id.messagesList)
+        recyclerView = rootView.findViewById<RecyclerView>(R.id.messagesList)
         val layoutManager = LinearLayoutManager(context)
         val adapter = MessageAdapter(messages, {position -> onItemClick(position)}, {position -> onItemLongClick(position)})
         recyclerView.layoutManager = layoutManager
@@ -65,7 +61,19 @@ class MessagesFragment : Fragment(), View.OnClickListener
         newMessage.setOnClickListener(this)
         val settings = rootView.findViewById<ImageButton>(R.id.settingsButton)
         settings.setOnClickListener(this)
+
+        messagesViewModel.getMessages().observe(viewLifecycleOwner) { messageList ->
+            Log.i("MessagesFragment", "Getting Messages")
+            messages.clear()
+            messages.addAll(messageList)
+            adapter.notifyItemInserted(messages.size - 1)
+        }
         return rootView
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?)
+    {
+        super.onViewCreated(view, savedInstanceState)
     }
 
     private fun onItemClick(position : Int)

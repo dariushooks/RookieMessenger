@@ -1,5 +1,6 @@
 package com.rookieandroid.rookiemessenger.architecture
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,11 +13,11 @@ class UserViewModel : ViewModel()
 {
     private val auth : FirebaseAuth = FirebaseAuth.getInstance()
     private val dbRef : DatabaseReference = FirebaseDatabase.getInstance().reference
-    private val users : MutableLiveData<List<User>> by lazy {
-        MutableLiveData<List<User>>().also { loadUsers() }
-    }
+    private val users = MutableLiveData<ArrayList<User>>().also { loadUsers() }
+    val addedUser : MutableLiveData<User> = MutableLiveData()
 
-    fun getUsers() : LiveData<List<User>> { return users }
+    fun getUsers() : LiveData<ArrayList<User>> { return users }
+    fun setAddedUser(user : User) {addedUser.value = user}
 
     private fun loadUsers()
     {
@@ -35,7 +36,9 @@ class UserViewModel : ViewModel()
                         auth.currentUser?.updateProfile(profile)
                     }
                 }
+
                 users.value = userList
+                Log.i("UserViewModel", "Users loaded")
             }
 
             override fun onCancelled(error: DatabaseError)

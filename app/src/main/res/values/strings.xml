@@ -16,4 +16,6 @@
     <string name="sign_up_name">Name</string>
     <string name="sign_up_create_button">Create</string>
     <string name="sign_up_cancel_button">Cancel</string>
+    <string name="to_text">To:</string>
+    <string name="dialog_users_title">USERS</string>
 </resources>

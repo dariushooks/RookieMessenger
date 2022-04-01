@@ -64,8 +64,9 @@ class MessageThreadFragment : Fragment(), View.OnClickListener
         recyclerView.adapter = adapter
 
         threadViewModel.getMessages().observe(viewLifecycleOwner) {thread ->
-            this.thread = thread as ArrayList<MessageThread>
-            adapter.notifyItemInserted(thread.size)
+            this.thread.clear()
+            this.thread.addAll(thread)
+            adapter.notifyItemInserted(thread.size - 1)
         }
         /*dbRef.child("messages").child(senderRoom)
             .addValueEventListener(object : ValueEventListener{
@@ -116,12 +117,12 @@ class MessageThreadFragment : Fragment(), View.OnClickListener
 
         val senderMessage = MessageThread(currentDate.toString(), currentTime.toString(), messageBox.text.toString(),
             auth.currentUser?.uid.toString(), receiver.uid, App.THREAD_TYPE_SENDER)
-        messageBox.text.clear()
         dbRef.child("messages").child(senderRoom).push().setValue(senderMessage)
             .addOnSuccessListener{
                 val receiverMessage = MessageThread(currentDate.toString(), currentTime.toString(), messageBox.text.toString(),
                     auth.currentUser?.uid.toString(), receiver.uid, App.THREAD_TYPE_RECEIVER)
                 dbRef.child("messages").child(receiverRoom).push().setValue(receiverMessage)
+                messageBox.text.clear()
             }
     }
 }

@@ -36,7 +36,12 @@
         android:id="@+id/newMessageFragment"
         android:name="com.rookieandroid.rookiemessenger.fragments.NewMessageFragment"
         android:label="@string/label_new"
-        tools:layout="@layout/fragment_new_message"/>
+        tools:layout="@layout/fragment_new_message">
+
+        <action
+            android:id="@+id/newMessageFragmentToThreadFragment"
+            app:destination="@id/messageThreadFragment"/>
+    </fragment>
 
     <fragment
         android:id="@+id/messageThreadFragment"
